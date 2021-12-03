@@ -18,7 +18,7 @@ def main():
             
     project_name = input("Project name: ")
     
-    dirname = PROJECT_DIR + project_name
+    dirname = os.path.join(PROJECT_DIR, project_name)
     
     if os.path.exists(dirname):
         print("ERROR: This directory already exists.")
@@ -26,7 +26,7 @@ def main():
     else:
         os.mkdir(dirname)
     
-    filename = PROJECT_DIR + project_name + "/" + project_name + ".cbp"
+    filename = os.path.join(dirname, project_name + ".cbp")
     
     with open(TEMPLATE_FILE, "r") as f:
         contents = f.readlines()
