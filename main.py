@@ -49,7 +49,8 @@ def main():
     
     os.system(CODEBLOCKS_CMD.format(filename) + " --build")
     
-    shutil.make_archive(dirname + "/" + PREFIX + " " + project_name, "zip", dirname)
+    shutil.make_archive(os.path.join(PROJECT_DIR, project_name), "zip", dirname)
+    shutil.move(os.path.join(PROJECT_DIR, project_name + ".zip"), os.path.join(dirname, project_name + ".zip"))
     
     print("Successfully created project at " + filename)
     
